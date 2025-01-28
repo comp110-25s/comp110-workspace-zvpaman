@@ -1,5 +1,5 @@
 """
-This module calculates the requirements and costs for hosting a cozy tea party. It
+This code calculates the requirements and costs for hosting a cozy tea party. It
 includes functions to determine the number of tea bags, treats, and the total cost.
 """
 
