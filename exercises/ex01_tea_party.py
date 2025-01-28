@@ -20,7 +20,8 @@ def treats(people: int) -> int:
     is estimated to consume 1.5 treats, which is calculated using the number of tea
     bags required.
     """
-    return int(tea_bags(people=people) * 1.5)
+    teas = tea_bags(people=people)
+    return int(teas * 1.5)
 
 
 def cost(tea_count: int, treat_count: int) -> float:
@@ -36,18 +37,15 @@ def main_planner(guests: int) -> None:
     Plans a tea party by calculating the required tea bags, treats, and the total cost.
     It then prints these details in a formatted summary.
     """
+    teas = tea_bags(guests)
+    treats_needed = treats(guests)
+    total_cost = cost(teas, treats_needed)
+
     print(f"A Cozy Tea Party for {guests} People!")
-    print(f"Tea Bags: {tea_bags(people=guests)}")
-    print(f"Treats: {treats(people=guests)}")
-    print(
-        f"Cost: ${cost(tea_count=tea_bags(people=guests), treat_count=treats(people=guests)):.2f}"
-    )
+    print(f"Tea Bags: {teas}")
+    print(f"Treats: {treats_needed}")
+    print(f"Cost: ${total_cost:.2f}")
 
 
 if __name__ == "__main__":
-    """
-    Executes the main block to prompt the user for the number of guests and then plans
-    the tea party by calling the main_planner function.
-    """
-    guests = int(input("Enter the number of guests: "))
-    main_planner(guests=guests)
+    main_planner(guests=int(input("How many guests are attending your tea party? ")))
